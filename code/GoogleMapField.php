@@ -1,5 +1,14 @@
 <?php
 
+use SilverStripe\Core\Convert;
+use SilverStripe\View\Requirements;
+use SilverStripe\ORM\DataObject;
+use SilverStripe\ORM\DataObjectInterface;
+use SilverStripe\Forms\FormField;
+use SilverStripe\Forms\HiddenField;
+use SilverStripe\Forms\FieldList;
+use SilverStripe\Forms\TextField;
+
 /**
  * GoogleMapField
  * Lets you record a precise location using latitude/longitude fields to a
@@ -9,7 +18,7 @@
  * Maps Geocoding API.
  * @author <@willmorgan>
  */
-class GoogleMapField extends FormField {
+class GoogleMapField extends FormField  {
 
 	protected $data;
 
@@ -174,7 +183,7 @@ class GoogleMapField extends FormField {
 	/**
 	 * {@inheritdoc}
 	 */
-	public function setValue($record) {
+	public function setValue($record, $data = null) {
 		$this->latField->setValue(
 			$record['Latitude']
 		);
